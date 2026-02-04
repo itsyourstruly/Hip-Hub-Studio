@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill a Verse | BeatLink</title>
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles/variables.css" as="style">
+    <link rel="preload" href="styles/fill-a-verse.css" as="style">
+    <link rel="preload" href="styles/auth.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/fill-a-verse.css">
+    <link rel="stylesheet" href="styles/auth.css">
+    
+    <!-- Preload JavaScript -->
+    <link rel="preload" href="scripts/fill-a-verse.js" as="script">
+    <link rel="preload" href="scripts/auth.js" as="script">
+</head>
+<body>
+    <!-- Circular Navigation Icons -->
+    <nav class="nav-icons">
+        <a href="index.html" class="nav-icon" title="Home">
+            <span class="icon">H</span>
+        </a>
+        <a href="sample-catalog.html" class="nav-icon" title="Sample Catalog">
+            <span class="icon">S</span>
+        </a>
+        <a href="upload-sample.html" class="nav-icon" title="New Sample">
+            <span class="icon">+</span>
+        </a>
+        <a href="fill-a-verse.html" class="nav-icon active" title="Fill a Verse Page">
+            <span class="icon">V</span>
+        </a>
+    </nav>
+
+    <!-- User Profile Icon -->
+    <div class="user-profile-icon" id="userProfileIcon">
+        <div class="profile-avatar">
+            <span id="userInitial">U</span>
+        </div>
+    </div>
+
+    <!-- Profile Menu Dropdown -->
+    <div class="profile-menu" id="profileMenu">
+        <div class="profile-menu-header">
+            <div class="profile-avatar-large">
+                <span id="userInitialLarge">U</span>
+            </div>
+            <div class="profile-info">
+                <h3 id="profileUsername">User</h3>
+                <p id="profileEmail">user@example.com</p>
+            </div>
+        </div>
+        <div class="profile-menu-divider"></div>
+        <a href="#" class="profile-menu-item">
+            <span>Profile Settings</span>
+        </a>
+        <a href="#" class="profile-menu-item">
+            <span>My Uploads</span>
+        </a>
+        <a href="#" class="profile-menu-item">
+            <span>Favorites</span>
+        </a>
+        <div class="profile-menu-divider"></div>
+        <a href="#" class="profile-menu-item logout" id="logoutBtn">
+            <span>Logout</span>
+        </a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <div class="page-header">
+            <h1>Share your track to find a collaborator. Choose a request to record your verse and join the tracks </h1>
+            <a href="upload-verse.html" class="add-verse-btn">
+                <span class="plus-icon">+</span>
+            </a>
+        </div>
+
+        <!-- Vocals Section -->
+        <div class="verse-category">
+            <div class="category-header">
+                <h2>Vocals</h2>
+            </div>
+            <div class="cards-container" id="vocalsContainer">
+                <!-- Vocals cards will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <!-- Rap Section -->
+        <div class="verse-category">
+            <div class="category-header">
+                <h2>Rap</h2>
+            </div>
+            <div class="cards-container" id="rapContainer">
+                <!-- Rap cards will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="scripts/fill-a-verse.js"></script>
+    <script src="scripts/auth.js"></script>
+</body>
+</html>

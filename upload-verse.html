@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Verse Request - BeatLink</title>
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/upload-verse.css">
+</head>
+<body>
+    <a href="index.html" class="back-button">← Back</a>
+    
+    <div class="split-container">
+        <!-- Top Half: Live Preview -->
+        <div class="preview-section">
+            <div class="preview-content">
+                <div class="preview-item track-preview" id="trackPreview">
+                    <span class="preview-label">Track</span>
+                    <span class="preview-value"></span>
+                </div>
+                <div class="preview-item artist-preview" id="artistPreview">
+                    <span class="preview-label">Artist</span>
+                    <span class="preview-value"></span>
+                </div>
+                <div class="preview-item genre-preview" id="genrePreview">
+                    <span class="preview-label">Genre</span>
+                    <span class="preview-value"></span>
+                </div>
+                <div class="preview-item description-preview" id="descriptionPreview">
+                    <span class="preview-label">Looking for</span>
+                    <span class="preview-value"></span>
+                </div>
+                <div class="preview-cover" id="coverPreview">
+                    <div class="preview-placeholder">🎵</div>
+                    <img id="coverImage" style="display: none;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Half: Form -->
+        <div class="form-section">
+            <div class="form-container">
+                <div class="step-indicator">
+                    Step <span id="currentStep">1</span> of 5
+                </div>
+
+                <!-- Step 1: Song Title -->
+                <div class="step active" id="step1">
+                    <h2>Track name?</h2>
+                    <input type="text" id="songTitle" placeholder="Enter track name" maxlength="50" autofocus>
+                    <button class="next-btn" onclick="goToStep(2)">Continue</button>
+                </div>
+
+                <!-- Step 2: Genre -->
+                <div class="step" id="step2">
+                    <h2>Genre?</h2>
+                    <div class="genre-grid-compact">
+                        <div class="genre-pill" data-genre="Hip-Hop">Hip-Hop</div>
+                        <div class="genre-pill" data-genre="R&B">R&B</div>
+                        <div class="genre-pill" data-genre="Pop">Pop</div>
+                        <div class="genre-pill" data-genre="Rock">Rock</div>
+                        <div class="genre-pill" data-genre="Electronic">Electronic</div>
+                        <div class="genre-pill" data-genre="Rap">Rap</div>
+                        <div class="genre-pill" data-genre="Alternative">Alternative</div>
+                        <div class="genre-pill" data-genre="Jazz">Jazz</div>
+                    </div>
+                    <div class="button-group">
+                        <button class="back-btn" onclick="goToStep(1)">Back</button>
+                        <button class="next-btn" id="genreNextBtn" onclick="goToStep(3)">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Description -->
+                <div class="step" id="step3">
+                    <div class="description-header">
+                        <h2>What are you looking for?</h2>
+                        <button class="add-multiple-btn" id="addMultipleBtn" onclick="addDescriptionBox()">Looking for multiple?</button>
+                    </div>
+                    <div class="description-boxes-container" id="descriptionBoxesContainer">
+                        <div class="description-box-wrapper">
+                            <textarea class="verse-description" data-index="0" placeholder="Describe the verse you need..." maxlength="200"></textarea>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button class="back-btn" onclick="goToStep(2)">Back</button>
+                        <button class="next-btn" onclick="goToStep(4)">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Cover Art -->
+                <div class="step" id="step4">
+                    <h2>Cover art?</h2>
+                    <p class="subtitle">Optional</p>
+                    <div class="file-upload-compact" id="imageUploadArea">
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                        <div class="upload-btn-compact" id="imageUploadBtn">
+                            Choose Image
+                        </div>
+                        <div class="file-name" id="imageFileName"></div>
+                    </div>
+                    <div class="button-group">
+                        <button class="back-btn" onclick="goToStep(3)">Back</button>
+                        <button class="next-btn" onclick="goToStep(5)">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Audio File -->
+                <div class="step" id="step5">
+                    <h2>Upload track</h2>
+                    <div class="file-upload-compact" id="audioUploadArea">
+                        <input type="file" id="audioInput" accept="audio/*" style="display: none;">
+                        <div class="upload-btn-compact" id="audioUploadBtn">
+                            Choose Audio
+                        </div>
+                        <div class="file-name" id="audioFileName"></div>
+                    </div>
+                    <div class="button-group">
+                        <button class="back-btn" onclick="goToStep(4)">Back</button>
+                        <button class="submit-btn" onclick="submitRequest()">Submit</button>
+                    </div>
+                </div>
+
+                <!-- Success -->
+                <div class="step" id="stepSuccess" style="display: none;">
+                    <div class="success-icon">✓</div>
+                    <h2>Posted!</h2>
+                    <p>Artists can now see your request.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/upload-verse.js"></script>
+</body>
+</html>
