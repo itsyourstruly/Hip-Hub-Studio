@@ -36,13 +36,8 @@ const loadingState = document.getElementById('loadingState');
 const emptyState = document.getElementById('emptyState');
 
 
-/**
- * Setup event listeners for filter buttons
- * Toggles button selection and updates filtered results
- * Uses Set data structure for efficient filter management
- */
+
 function setupFilterButtons() {
-    // ===== Intended Genre filters =====
     const genreButtons = intendedGenreFilters.querySelectorAll('.filter-tag');
     genreButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -62,7 +57,6 @@ function setupFilterButtons() {
         });
     });
     
-    // ===== Style filters =====
     const styleButtons = styleFilters.querySelectorAll('.filter-tag');
     styleButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -123,13 +117,6 @@ function renderSamples(samples) {
     samplesGrid.appendChild(fragment);
 }
 
-/**
- * Handle click on a sample card
- * Triggers card expansion animation before showing detail view
- * 
- * @param {Object} sample - The sample object that was clicked
- * @param {Event} event - The click event
- */
 function handleSampleClick(sample, event) {
     const clickedCard = event.currentTarget;
     expandCardAndShowDetail(clickedCard, sample);
@@ -367,10 +354,6 @@ function setupEventListeners() {
     });
 }
 
-/**
- * Initialize the sample catalog page
- * Called when DOM is fully loaded
- */
 function init() {
     setupFilterButtons();
     setupEventListeners();

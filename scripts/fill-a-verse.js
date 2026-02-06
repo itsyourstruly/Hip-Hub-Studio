@@ -1,14 +1,3 @@
-// =====================================================
-// FILL A VERSE PAGE
-// =====================================================
-// This page displays available verse collaboration requests
-// organized by category (vocals vs rap).
-// Users can browse and select requests to contribute to.
-// =====================================================
-
-// =============== MOCK DATA ===============
-// Mock data representing open verse collaboration requests
-// In production, this would be fetched from a backend API
 const mockVerseRequests = {
     // Vocal-focused verse requests (singing, melodies, hooks)
     vocals: [

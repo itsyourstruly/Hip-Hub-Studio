@@ -336,44 +336,6 @@ function renderVerseRequests() {
     verseContainer.innerHTML = '';
     verseContainer.appendChild(fragment);
 }
-
-// =============== MODAL FUNCTIONS ===============
-
-/**
- * Open verse request modal with detailed information
- * NOTE: This function is currently not used as cards navigate to separate page
- * Kept for potential future modal-based UI
- * 
- * @param {number} verseId - ID of the verse request to display
- */
-function openVerseModal(verseId) {
-    const verse = verseRequests.find(v => v.id === verseId);
-    if (!verse) return;
-    
-    // Populate modal content
-    const modalCover = document.getElementById('modalCover');
-    const modalIcon = document.getElementById('modalIcon');
-    const modalGenre = document.getElementById('modalGenre');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalArtist = document.getElementById('modalArtist');
-    const modalDescription = document.getElementById('modalDescription');
-    const verseModal = document.getElementById('verseModal');
-    
-    if (!modalCover || !modalIcon || !modalGenre || !modalTitle || !modalArtist || !modalDescription || !verseModal) {
-        console.error('Modal elements not found');
-        return;
-    }
-    
-    modalGenre.textContent = verse.genre;
-    modalTitle.textContent = verse.title;
-    modalArtist.textContent = verse.artist;
-    modalDescription.textContent = verse.description;
-    
-    // Show modal
-    verseModal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-}
-
 /**
  * Close the verse request modal and restore page scrolling
  */
