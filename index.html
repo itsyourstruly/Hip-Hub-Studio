@@ -7,12 +7,12 @@
     
     <!-- Preload critical CSS -->
     <link rel="preload" href="styles/variables.css" as="style">
-    <link rel="preload" href="styles/main.css" as="style">
+    <link rel="preload" href="styles/B-main.css" as="style">
     <link rel="preload" href="styles/auth.css" as="style">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles/variables.css">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/B-main.css">
     <link rel="stylesheet" href="styles/auth.css">
     
     <!-- Preload JavaScript -->
@@ -29,7 +29,7 @@
         </div>
         <div class="nav-center">
             <div class="vinyl-container">
-                <div class="vinyl-record">
+                <div class="vinyl-record clickable" id="vinylFlip">
                     <div class="vinyl-center-image"></div>
                 </div>
             </div>
@@ -47,117 +47,10 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="hero">
-        <!-- Hero Header -->
-        <div class="hero-header">
-            <h1>Discover Amazing Music</h1>
-            <p>Connect with others. Share your sounds. Make an impact</p>
+    <main class="hero welcome-screen">
+        <div class="welcome-container">
+            <h1 class="welcome-text">Welcome to the Studio</h1>
         </div>
-
-        <!-- What's Popping Section -->
-        <section class="trending-section">
-            <div class="section-header">
-                <h2>What's Popping</h2>
-            </div>
-            
-            <div class="horizontal-scroll-container">
-                <div class="songs-wrapper">
-                    <!-- New Songs -->
-                    <div class="song-section-label">New</div>
-                    <div class="horizontal-songs" id="newSongs">
-                        <!-- New songs will be dynamically loaded here -->
-                    </div>
-                    
-                    <!-- Spacer -->
-                    <div class="section-spacer"></div>
-                    
-                    <!-- Trending Songs -->
-                    <div class="song-section-label">Trending</div>
-                    <div class="horizontal-songs" id="trendingSongs">
-                        <!-- Trending songs will be dynamically loaded here -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sample Catalog Section -->
-        <section class="sample-library-section">
-            <div class="library-container">
-                <div class="library-left">
-                    <div class="library-header">
-                        <h2>Sample Catalog</h2>
-                        <p>Discover, share, and chop up audio samples</p>
-                    </div>
-                    
-                    <button class="upload-button" onclick="window.location.href='upload-sample.html'">
-                        <span class="upload-icon">+</span>
-                    </button>
-                </div>
-                
-                <div class="library-right">
-                    <div class="samples-scroll" id="popularSamples">
-                        <a href="sample-catalog.html" class="browse-card">
-                            <div class="browse-icon">→</div>
-                            <div class="browse-text">Browse All Samples</div>
-                        </a>
-                        <!-- Popular samples will be loaded here -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Fill a Verse Section -->
-        <section class="verse-section">
-            <div class="section-header">
-                <h2>Fill a Verse</h2>
-            </div>
-            
-            <div class="verse-container">
-                <div class="verse-left">
-                    <div class="verse-upload-box">
-                        <h3>Need a verse on your song?</h3>
-                        <p>Upload what you got.</p>
-                        
-                        <button class="verse-upload-btn" onclick="window.location.href='upload-verse.html'">
-                            <span class="verse-plus">+</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="verse-right">
-                    <div class="verse-header">
-                        <h3>Fill in a spot</h3>
-                    </div>
-                    <div class="verse-requests-scroll" id="verseRequests">
-                        <!-- Verse requests will be loaded here -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Producers Corner Section -->
-        <section class="feature-section">
-            <div class="section-header">
-                <h2>Producers Corner</h2>
-                <a href="producers-corner.html" class="view-all">Start Selling →</a>
-            </div>
-            <p class="section-description">Monetize your beats. Connect with artists. Build your production empire.</p>
-            
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>Showcase Beats</h3>
-                    <p>Display your production portfolio to artists</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Sell Your Work</h3>
-                    <p>Set prices and earn from your productions</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Track Analytics</h3>
-                    <p>Monitor plays, downloads, and revenue</p>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Login/Signup Modal -->
@@ -192,5 +85,25 @@
     <!-- JavaScript -->
     <script src="scripts/main.js"></script>
     <script src="scripts/auth.js"></script>
+    <script>
+        // Side flip functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const vinylFlip = document.getElementById('vinylFlip');
+            
+            function flipToSideA() {
+                // Add transitioning class to start color change
+                document.body.classList.add('transitioning-to-light');
+                
+                // Wait for transition to complete, then navigate
+                setTimeout(() => {
+                    window.location.href = 'A-index.html';
+                }, 800);
+            }
+            
+            if (vinylFlip) {
+                vinylFlip.addEventListener('click', flipToSideA);
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hip Hub | Side A</title>
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles/variables.css" as="style">
+    <link rel="preload" href="styles/B-main.css" as="style">
+    <link rel="preload" href="styles/A-main.css" as="style">
+    <link rel="preload" href="styles/auth.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/B-main.css">
+    <link rel="stylesheet" href="styles/A-main.css">
+    <link rel="stylesheet" href="styles/auth.css">
+    
+    <!-- Preload JavaScript -->
+    <link rel="preload" href="scripts/main.js" as="script">
+    <link rel="preload" href="scripts/auth.js" as="script">
+</head>
+<body class="side-a">
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <a href="A-index.html" class="nav-brand">Hip Hub</a>
+        <div class="nav-links nav-links-left">
+            <a href="#community" class="nav-link">Community</a>
+            <a href="#discovery" class="nav-link">Discovery</a>
+        </div>
+        <div class="nav-center">
+            <div class="vinyl-container">
+                <div class="vinyl-record clickable" id="vinylFlip">
+                    <div class="vinyl-center-image"></div>
+                </div>
+            </div>
+            <span class="vinyl-label">Side A</span>
+        </div>
+        <div class="nav-links nav-links-right">
+            <a href="#media" class="nav-link">Media</a>
+            <a href="A-index.html" class="nav-link active">Home</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="hero">
+        <!-- Slideshow Section -->
+        <section class="slideshow-section">
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <div class="slide-content">
+                        <h2>Welcome to Hip Hub</h2>
+                        <p>Test</p>
+                    </div>
+                </div>
+                
+                <div class="slide">
+                    <div class="slide-content">
+                        <h2>Community chat</h2>
+                        <p>Chat with other listeners</p>
+                    </div>
+                </div>
+                
+                <div class="slide">
+                    <div class="slide-content">
+                        <h2>Review Albums</h2>
+                        <p>Make your own Album Reviews</p>
+                    </div>
+                </div>
+                
+                <div class="slide">
+                    <div class="slide-content">
+                        <h2>Up and Coming</h2>
+                        <p>Up and coming artists and albums</p>
+                    </div>
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <button class="slide-arrow slide-arrow-left" id="prevSlide">
+                    <span>‹</span>
+                </button>
+                <button class="slide-arrow slide-arrow-right" id="nextSlide">
+                    <span>›</span>
+                </button>
+                
+                <!-- Slide Indicators -->
+                <div class="slide-indicators">
+                    <span class="indicator active" data-slide="0"></span>
+                    <span class="indicator" data-slide="1"></span>
+                    <span class="indicator" data-slide="2"></span>
+                    <span class="indicator" data-slide="3"></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login/Signup Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeModal">&times;</span>
+            
+            <!-- Login Form -->
+            <div id="loginForm" class="auth-form">
+                <h2>Welcome Back</h2>
+                <p class="auth-subtitle">Login to continue your journey</p>
+                
+                <form id="loginFormElement">
+                    <div class="form-group">
+                        <label for="loginUsername">Username</label>
+                        <input type="text" id="loginUsername" required placeholder="Enter your username">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required placeholder="Enter your password">
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                
+                <p class="auth-switch">Don't have an account? <a href="#" id="showSignup">Create one</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script>
+        // Slideshow functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const vinylFlip = document.getElementById('vinylFlip');
+            const slides = document.querySelectorAll('.slide');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevBtn = document.getElementById('prevSlide');
+            const nextBtn = document.getElementById('nextSlide');
+            let currentSlide = 0;
+            let autoSlideInterval;
+            
+            function showSlide(index) {
+                // Wrap around
+                if (index >= slides.length) index = 0;
+                if (index < 0) index = slides.length - 1;
+                
+                // Remove active from all slides
+                slides.forEach(slide => slide.classList.remove('active'));
+                
+                // Add active to target slide
+                slides[index].classList.add('active');
+                
+                // Update indicators
+                indicators.forEach(indicator => indicator.classList.remove('active'));
+                indicators[index].classList.add('active');
+                
+                currentSlide = index;
+            }
+            
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+            
+            function prevSlide() {
+                showSlide(currentSlide - 1);
+            }
+            
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            function stopAutoSlide() {
+                clearInterval(autoSlideInterval);
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+                stopAutoSlide();
+                startAutoSlide();
+            });
+            
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                stopAutoSlide();
+                startAutoSlide();
+            });
+            
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', function() {
+                    showSlide(index);
+                    stopAutoSlide();
+                    startAutoSlide();
+                });
+            });
+            
+            // Start auto-slide
+            startAutoSlide();
+            
+            // Side flip functionality
+            function flipToSideB() {
+                document.body.classList.add('transitioning-to-dark');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 800);
+            }
+            
+            if (vinylFlip) {
+                vinylFlip.addEventListener('click', flipToSideB);
+            }
+        });
+    </script>
+</body>
+</html>

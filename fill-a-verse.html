@@ -7,11 +7,13 @@
     
     <!-- Preload critical CSS -->
     <link rel="preload" href="styles/variables.css" as="style">
+    <link rel="preload" href="styles/B-main.css" as="style">
     <link rel="preload" href="styles/fill-a-verse.css" as="style">
     <link rel="preload" href="styles/auth.css" as="style">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/B-main.css">
     <link rel="stylesheet" href="styles/fill-a-verse.css">
     <link rel="stylesheet" href="styles/auth.css">
     
@@ -29,7 +31,7 @@
         </div>
         <div class="nav-center">
             <div class="vinyl-container">
-                <div class="vinyl-record">
+                <div class="vinyl-record clickable" id="vinylFlip">
                     <div class="vinyl-center-image"></div>
                 </div>
             </div>
@@ -112,5 +114,22 @@
     <!-- JavaScript -->
     <script src="scripts/fill-a-verse.js"></script>
     <script src="scripts/auth.js"></script>
+    <script>
+        // Side flip functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const vinylFlip = document.getElementById('vinylFlip');
+            
+            function flipToSideA() {
+                document.body.classList.add('transitioning-to-light');
+                setTimeout(() => {
+                    window.location.href = 'A-index.html';
+                }, 800);
+            }
+            
+            if (vinylFlip) {
+                vinylFlip.addEventListener('click', flipToSideA);
+            }
+        });
+    </script>
 </body>
 </html>
