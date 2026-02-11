@@ -20,23 +20,30 @@
     <link rel="preload" href="scripts/auth.js" as="script">
 </head>
 <body>
-    <!-- Circular Navigation Icons -->
-    <nav class="nav-icons">
-        <a href="index.html" class="nav-icon active" title="Home">
-            <span class="icon">H</span>
-        </a>
-        <a href="sample-catalog.html" class="nav-icon" title="Sample Catalog">
-            <span class="icon">S</span>
-        </a>
-        <a href="fill-a-verse.html" class="nav-icon" title="Fill a Verse">
-            <span class="icon">V</span>
-        </a>
-        <a href="producers-corner.html" class="nav-icon" title="Producers Corner">
-            <span class="icon">P</span>
-        </a>
-        <button class="nav-icon" id="profileBtn" title="Profile">
-            <span class="icon">U</span>
-        </button>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <a href="index.html" class="nav-brand">Hip Hub</a>
+        <div class="nav-links nav-links-left">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="sample-catalog.html" class="nav-link">Sample Catalog</a>
+        </div>
+        <div class="nav-center">
+            <div class="vinyl-container">
+                <div class="vinyl-record">
+                    <div class="vinyl-center-image"></div>
+                </div>
+            </div>
+            <span class="vinyl-label">Side B</span>
+        </div>
+        <div class="nav-links nav-links-right">
+            <a href="fill-a-verse.html" class="nav-link">Fill a Verse</a>
+            <a href="producers-corner.html" class="nav-link">Producers Corner</a>
+        </div>
+        <div class="nav-actions">
+            <button class="profile-btn" id="profileBtn" title="Profile" aria-label="Profile">
+                U
+            </button>
+        </div>
     </nav>
 
     <!-- Main Content -->

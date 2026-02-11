@@ -20,28 +20,33 @@
     <link rel="preload" href="scripts/auth.js" as="script">
 </head>
 <body>
-    <!-- Circular Navigation Icons -->
-    <nav class="nav-icons">
-        <a href="index.html" class="nav-icon" title="Home">
-            <span class="icon">H</span>
-        </a>
-        <a href="sample-catalog.html" class="nav-icon active" title="Sample Catalog">
-            <span class="icon">S</span>
-        </a>
-        <a href="upload-sample.html" class="nav-icon" title="New Sample">
-            <span class="icon">+</span>
-        </a>
-        <a href="fill-a-verse.html" class="nav-icon" title="Fill a Verse Page">
-            <span class="icon">V</span>
-        </a>
-    </nav>
-
-    <!-- User Profile Icon -->
-    <div class="user-profile-icon" id="userProfileIcon">
-        <div class="profile-avatar">
-            <span id="userInitial">U</span>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <a href="index.html" class="nav-brand">Hip Hub</a>
+        <div class="nav-links nav-links-left">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="sample-catalog.html" class="nav-link active">Sample Catalog</a>
         </div>
-    </div>
+        <div class="nav-center">
+            <div class="vinyl-container">
+                <div class="vinyl-record">
+                    <div class="vinyl-center-image"></div>
+                </div>
+            </div>
+            <span class="vinyl-label">Side B</span>
+        </div>
+        <div class="nav-links nav-links-right">
+            <a href="upload-sample.html" class="nav-link">Upload Sample</a>
+            <a href="fill-a-verse.html" class="nav-link">Fill a Verse</a>
+        </div>
+        <div class="nav-actions">
+            <div class="user-profile-icon" id="userProfileIcon" aria-label="User profile">
+                <div class="profile-avatar">
+                    <span id="userInitial">U</span>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <!-- Profile Menu Dropdown -->
     <div class="profile-menu" id="profileMenu">
