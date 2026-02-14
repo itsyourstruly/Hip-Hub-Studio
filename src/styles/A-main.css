@@ -72,7 +72,7 @@ body.side-a .nav-link.active {
 
 /* Slideshow Section */
 .slideshow-section {
-    padding: 8rem 2rem 4rem;
+    padding: 2rem 2rem 4rem;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -81,10 +81,10 @@ body.side-a .nav-link.active {
     position: relative;
     width: 100%;
     max-width: 1200px;
-    height: 500px;
+    height: 600px;
     margin: 0 auto;
-    background: linear-gradient(135deg, rgba(29, 185, 84, 0.1) 0%, rgba(29, 185, 84, 0.05) 100%);
-    border-radius: 24px;
+    background-color: rgba(54, 215, 113, 0.8);
+    border-radius: 36px;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
@@ -117,16 +117,16 @@ body.side-a .nav-link.active {
 }
 
 .slide-content h2 {
-    font-size: 3.5rem;
+    font-size: 5.5rem;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #faf8f8;
     margin-bottom: 1.5rem;
     line-height: 1.2;
 }
 
 .slide-content p {
-    font-size: 1.5rem;
-    color: #666666;
+    font-size: 1.9rem;
+    color: #f5f3f3;
     line-height: 1.6;
 }
 

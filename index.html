@@ -4,106 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hip Hub | The Studio</title>
-    
-    <!-- Preload critical CSS -->
-    <link rel="preload" href="styles/variables.css" as="style">
-    <link rel="preload" href="styles/B-main.css" as="style">
-    <link rel="preload" href="styles/auth.css" as="style">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles/variables.css">
-    <link rel="stylesheet" href="styles/B-main.css">
-    <link rel="stylesheet" href="styles/auth.css">
-    
-    <!-- Preload JavaScript -->
-    <link rel="preload" href="scripts/main.js" as="script">
-    <link rel="preload" href="scripts/auth.js" as="script">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 </head>
 <body>
-    <!-- Top Navigation Bar -->
-    <nav class="top-nav">
-        <a href="index.html" class="nav-brand">Hip Hub</a>
-        <div class="nav-links nav-links-left">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="sample-catalog.html" class="nav-link">Sample Catalog</a>
-        </div>
-        <div class="nav-center">
-            <div class="vinyl-container">
-                <div class="vinyl-record clickable" id="vinylFlip">
-                    <div class="vinyl-center-image"></div>
-                </div>
-            </div>
-            <span class="vinyl-label">Side B</span>
-        </div>
-        <div class="nav-links nav-links-right">
-            <a href="fill-a-verse.html" class="nav-link">Fill a Verse</a>
-            <a href="producers-corner.html" class="nav-link">Producers Corner</a>
-        </div>
-        <div class="nav-actions">
-            <button class="profile-btn" id="profileBtn" title="Profile" aria-label="Profile">
-                U
-            </button>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="hero welcome-screen">
-        <div class="welcome-container">
-            <h1 class="welcome-text">Welcome to the Studio</h1>
-        </div>
-    </main>
-
-    <!-- Login/Signup Modal -->
-    <div id="authModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" id="closeModal">&times;</span>
-            
-            <!-- Login Form -->
-            <div id="loginForm" class="auth-form">
-                <h2>Welcome Back</h2>
-                <p class="auth-subtitle">Login to continue your journey</p>
-                
-                <form id="loginFormElement">
-                    <div class="form-group">
-                        <label for="loginUsername">Username</label>
-                        <input type="text" id="loginUsername" required placeholder="Enter your username">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <input type="password" id="loginPassword" required placeholder="Enter your password">
-                    </div>
-                    
-                    <button type="submit" class="btn-primary">Login</button>
-                </form>
-                
-                <p class="auth-switch">Don't have an account? <a href="#" id="showSignup">Create one</a></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript -->
-    <script src="scripts/main.js"></script>
-    <script src="scripts/auth.js"></script>
-    <script>
-        // Side flip functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const vinylFlip = document.getElementById('vinylFlip');
-            
-            function flipToSideA() {
-                // Add transitioning class to start color change
-                document.body.classList.add('transitioning-to-light');
-                
-                // Wait for transition to complete, then navigate
-                setTimeout(() => {
-                    window.location.href = 'A-index.html';
-                }, 800);
-            }
-            
-            if (vinylFlip) {
-                vinylFlip.addEventListener('click', flipToSideA);
-            }
-        });
-    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

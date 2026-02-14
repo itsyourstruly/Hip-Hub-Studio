@@ -1,7 +1,54 @@
-The Hip Hub.
+# Hip Hub Studio
 
-The website is split into 2 sides; Side A & Side B.
+A modern music collaboration platform built with React, connecting artists, producers, and musicians.
 
-Side A consists of general music news, discussion, and social connections.
+## Features
 
-Side B consists of the Studio which allows artists to fill in a verse for other artists, request verses, and Artists can step into a virtual booth to collaborate with others.
+- **Side A** - Community features with slideshow
+- **Side B** - Production studio features
+- Sample catalog with search and filters
+- Verse collaboration requests
+- Multi-step upload forms
+- User authentication
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Tech Stack
+
+- React 18
+- React Router
+- Vite
+- CSS (original styles preserved)
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── contexts/       # React Context (Auth, etc.)
+├── pages/          # Route components
+├── styles/         # CSS files
+├── App.jsx         # Main app with routing
+└── main.jsx        # Entry point
+```
+
+## Routes
+
+- `/` - Home (Side B - Studio)
+- `/side-a` - Home (Side A - Community)
+- `/sample-catalog` - Browse samples
+- `/fill-a-verse` - View verse requests
+- `/upload-sample` - Upload sample
+- `/upload-verse` - Create verse request
+- `/signup` - User registration
