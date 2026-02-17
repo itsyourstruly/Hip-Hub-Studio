@@ -13,8 +13,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y : scroll;
     position: relative;
 }
 
@@ -409,9 +408,9 @@ body::before {
 
 /* Cards Container */
 .cards-container {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
     overflow-x: auto;
@@ -421,7 +420,7 @@ body::before {
     grid-auto-flow: column;
     grid-auto-columns: 200px;
     gap: var(--spacing-md);
-    max-height: 500px;
+    max-height: 1000;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
@@ -483,7 +482,7 @@ body::before {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 78px) {
     .page-header {
         flex-direction: column;
         gap: var(--spacing-md);

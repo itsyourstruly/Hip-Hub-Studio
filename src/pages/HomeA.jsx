@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import '../styles/A-main.css'
-import '../styles/B-main.css'
+import '../styles/A-main.css';
 
 const slides = [
   {
@@ -21,6 +19,7 @@ const slides = [
     description: "Up and coming artists and albums"
   }
 ]
+
 
 const HomeA = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -85,4 +84,5 @@ const HomeA = () => {
   )
 }
 
-export default HomeA
+export default HomeA;
+
