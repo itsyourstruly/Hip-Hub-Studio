@@ -1,10 +1,11 @@
+
 /* ===========================
    SIDE A STYLES
    =========================== */
 
 /* Side A Body Styling */
 body.side-a {
-    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #697689 100%);
     color: #1a1a1a;
     transition: background 0.8s ease, color 0.8s ease;
     overflow: auto;
@@ -23,7 +24,7 @@ body.transitioning-to-light {
 
 /* Side A Navigation */
 body.side-a .top-nav {
-    background: rgb(231, 231, 231);
+    background: rgb(158, 158, 158);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     transition: background 0.8s ease, border-color 0.8s ease;
 }
@@ -34,7 +35,7 @@ body.transitioning-to-dark .top-nav {
 }
 
 body.transitioning-to-light .top-nav {
-    background: rgba(255, 255, 255, 0.95) !important;
+    background: rgba(158, 158, 158, 0.95) !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
@@ -45,7 +46,7 @@ body.side-a .vinyl-label {
 }
 
 body.side-a .nav-link {
-    color: #666666;
+    color: #e6e6e6;
 }
 
 body.side-a .nav-link:hover {
@@ -83,7 +84,8 @@ body.side-a .nav-link.active {
     max-width: 1200px;
     height: 600px;
     margin: 0 auto;
-    background-color: rgba(54, 215, 113, 0.8);
+    /* background-color: rgba(0, 0, 0, 0.8); */
+    background: linear-gradient(135deg, #1f1f1f 0%, #616161 100%);
     border-radius: 36px;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -135,7 +137,7 @@ body.side-a .nav-link.active {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0);
     border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     width: 50px;
@@ -150,10 +152,10 @@ body.side-a .nav-link.active {
 }
 
 .slide-arrow:hover {
-    background: var(--accent-color);
-    border-color: var(--accent-color);
+    background: rgba(109, 109, 109, 0);
+    border-color: rgba(0, 0, 0, 0.8);
     transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 116, 216, 0.3);
 }
 
 .slide-arrow:hover span {
@@ -203,7 +205,7 @@ body.side-a .nav-link.active {
 }
 
 .indicator.active {
-    background: var(--accent-color);
+    background: rgba(255, 116, 216, 0.8);
     border-color: rgba(255, 255, 255, 0.8);
     transform: scale(1.3);
 }
