@@ -6,6 +6,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../styles/ScrollFloat.css';
 import '../styles/SpotlightCard.css';
 
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 const slides = [
@@ -192,14 +194,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
               <p>Discover what others are discussing</p>
             </div>
           </SpotlightCard>
-          
-          <SpotlightCard className="spotlight-card-item" spotlightColor="rgba(0, 229, 255, 0.4)">
-            <div className="card-inner">
-              <h3>Live Chat</h3>
-              <p>Chat with other users in real-time</p>
-            </div>
-          </SpotlightCard>
-          
+
           <SpotlightCard className="spotlight-card-item" spotlightColor="rgba(255, 215, 0, 0.4)">
             <div className="card-inner">
               <h3>Album Reviews</h3>

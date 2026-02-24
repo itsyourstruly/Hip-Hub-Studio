@@ -74,7 +74,7 @@ const Navbar = () => {
                 Home
               </Link>
               <Link to="/sample-catalog" className={`nav-link ${location.pathname === '/sample-catalog' ? 'active' : ''}`}>
-                Sample Catalog
+                none
               </Link>
             </>
           )}
@@ -99,11 +99,11 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/fill-a-verse" className={`nav-link ${location.pathname === '/fill-a-verse' ? 'active' : ''}`}>
-                Fill a Verse
+              <Link to="/collaborate" className={`nav-link ${location.pathname === '/collaborate' ? 'active' : ''}`}>
+                Collaborate
               </Link>
               <Link to="/upload-sample" className="nav-link">
-                Upload Sample
+                The Booth
               </Link>
             </>
           )}

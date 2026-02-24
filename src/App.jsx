@@ -4,9 +4,7 @@ import { AuthProvider } from './contexts/AuthContext'
 import Layout from './components/Layout/Layout'
 import Home from './pages/Home'
 import HomeA from './pages/HomeA'
-import SampleCatalog from './pages/SampleCatalog'
-import FillAVerse from './pages/FillAVerse'
-import UploadSample from './pages/UploadSample'
+import Collaborate from './pages/Collaborate'
 import UploadVerse from './pages/UploadVerse'
 import Signup from './pages/Signup'
 
@@ -19,13 +17,11 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="side-a" element={<HomeA />} />
-            <Route path="sample-catalog" element={<SampleCatalog />} />
-            <Route path="fill-a-verse" element={<FillAVerse />} />
+            <Route path="collaborate" element={<Collaborate />} />
           </Route>
           
           {/* Pages without Layout */}
           <Route path="/signup" element={<Signup />} />
-          <Route path="/upload-sample" element={<UploadSample />} />
           <Route path="/upload-verse" element={<UploadVerse />} />
         </Routes>
       </AuthProvider>

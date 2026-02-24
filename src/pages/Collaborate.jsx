@@ -1,5 +1,6 @@
-import React from 'react'
-import '../styles/B-main.css'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import '../styles/collaborate.css'
 
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
 import { useEffect, useRef, useMemo, useCallback } from 'react';
@@ -402,17 +403,21 @@ function FaultyTerminal({
   return <div ref={containerRef} className={`faulty-terminal-container ${className}`} style={style} {...rest} />;
 }
 
+const Collaborate = () => {
+  const [selectedType, setSelectedType] = useState('Single');
+  const [selectedGenre, setSelectedGenre] = useState('Hip Hop');
+  const [selectedCriteria, setSelectedCriteria] = useState('Verse');
 
-const Home = () => {
-  return (
+  const genres = ['Hip Hop', 'R&B', 'Pop', 'Jazz', 'Soul', 'Drill', 'Trap', 'Electronic'];
+
+  const terminalBackground = useMemo(() => (
     <div style={{ 
-      width: '100%', 
-      height: '100vh', 
       position: 'fixed',
       top: 0,
       left: 0,
       right: 0,
-      bottom: 0
+      bottom: 0,
+      zIndex: 0
     }}>
       <FaultyTerminal
         scale={2.6}
@@ -430,26 +435,90 @@ const Home = () => {
         tint="#38d123"
         mouseReact
         mouseStrength={1.2}
-        pageLoadAnimation
+        pageLoadAnimation={false}
         brightness={0.5}
       />
-      <div className="hero welcome-screen" style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        pointerEvents: 'none'
-      }}>
-        <div className="welcome-container">
-          <h1 className="welcome-text">Welcome to the Studio</h1>
+    </div>
+  ), []);
+
+  return (
+    <div style={{ 
+      width: '100%', 
+      minHeight: '100vh',
+      position: 'relative'
+    }}>
+      {terminalBackground}
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        {/* Header Section */}
+        <div className="page-header">
+          <div className="header-text">
+            <h1>Share your track to find a feature.</h1>
+            <p>Artists may choose from one of the below tracks for a potential feature.</p>
+          </div>
+          <Link to="/upload-verse" className="add-verse-btn">
+            <span className="plus-icon">+</span>
+          </Link>
+        </div>
+
+        {/* Filter Section */}
+        <div className="filter-row">
+          {/* Type Filter */}
+          <div className="filter-section">
+            <div className="filter-label">Type:</div>
+            <div className="filter-options">
+              <button 
+                className={`filter-btn ${selectedType === 'Single' ? 'active' : ''}`}
+                onClick={() => setSelectedType('Single')}
+              >
+                Single
+              </button>
+              <button 
+                className={`filter-btn ${selectedType === 'Album' ? 'active' : ''}`}
+                onClick={() => setSelectedType('Album')}
+              >
+                Album
+              </button>
+            </div>
+          </div>
+
+          {/* Genre Filter */}
+          <div className="filter-section">
+            <div className="filter-label">Genre:</div>
+            <div className="filter-options">
+              {genres.map(genre => (
+                <button 
+                  key={genre}
+                  className={`filter-btn ${selectedGenre === genre ? 'active' : ''}`}
+                  onClick={() => setSelectedGenre(genre)}
+                >
+                  {genre}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Criteria Filter */}
+          <div className="filter-section">
+            <div className="filter-label">Criteria:</div>
+            <div className="filter-options">
+              <button 
+                className={`filter-btn ${selectedCriteria === 'Verse' ? 'active' : ''}`}
+                onClick={() => setSelectedCriteria('Verse')}
+              >
+                Verse
+              </button>
+              <button 
+                className={`filter-btn ${selectedCriteria === 'Production' ? 'active' : ''}`}
+                onClick={() => setSelectedCriteria('Production')}
+              >
+                Production
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   )
 }
 
-export default Home
+export default Collaborate
